@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { DEV_ENV, MONGO_URI } from './env'
+import { MONGO_URI } from './env'
 import logger from '../utils/winstonLogger'
 
 export async function connectDB() {
@@ -15,9 +15,7 @@ export async function connectDB() {
 }
 
 mongoose.connection.on('connected', () =>
-	DEV_ENV === 'online'
-		? logger.info('Mongodb online database connected...')
-		: logger.info('Mongodb offline database connected...')
+	logger.info('Mongo database connected...')
 )
 
 mongoose.connection.on('error', (err) => logger.error(err.message))
