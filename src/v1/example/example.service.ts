@@ -1,10 +1,5 @@
 import { BookDocument, BookModel } from './example.model'
-import {
-	DocumentDefinition,
-	FilterQuery,
-	QueryOptions,
-	UpdateQuery,
-} from 'mongoose'
+import { FilterQuery, QueryOptions, UpdateQuery } from 'mongoose'
 
 //get all books from database
 export async function getAllBooks(options: QueryOptions = { lean: true }) {
@@ -20,7 +15,7 @@ export async function getBook(
 }
 
 //create a new book in database
-export async function createBook(input: DocumentDefinition<BookDocument>) {
+export async function createBook(input: BookDocument) {
 	return BookModel.create(input)
 }
 
